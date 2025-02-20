@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 주요 링크
 
-## Getting Started
+- S3 버킷 웹사이트 엔드포인트: [S3 앤드 포인트](http://frontend-4th-chapter-4-1.s3-website.ap-northeast-2.amazonaws.com)
+- CloudFrount 배포 도메인 이름: [CloudFrount 배포 도메인](https://d2jowg7kbhchxv.cloudfront.net)
 
-First, run the development server:
+## 주요 개념
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- GitHub Actions과 CI/CD 도구:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  - GitHub에서 제공하는 자동화된 워크플로우 도구
+  - 코드를 푸시하면 자동으로 테스트, 빌드, 배포 등을 수행
+  - .github/workflows/deployment.yml에 로직 작성
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- S3와 스토리지:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  - 정적 웹사이트 호스팅, 대용량 파일 저장 등에 활용
+  - 파일을 버킷이라는 단위로 저장
 
-## Learn More
+- CloudFront와 CDN:
 
-To learn more about Next.js, take a look at the following resources:
+  - CloudFront는 AWS의 CDN(Content Delivery Network)
+  - 전 세계 엣지 로케이션에 콘텐츠를 캐싱해서 사용자에게 가까운 위치에서 빠르게 콘텐츠를 제공
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 캐시 무효화(Cache Invalidation):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  - CDN에 캐싱된 콘텐츠를 강제로 삭제하는 작업
+  - 웹사이트가 업데이트되었을 때 사용자들이 최신 버전을 볼 수 있도록 기존 캐시를 무효화해야 함
+  - 파일명에 해시를 추가해서 로컬 캐시도 무효화 할 수 있음
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Repository secret과 환경변수:
+  - GitHub 레포에서 안전하게 관리되는 비밀값
